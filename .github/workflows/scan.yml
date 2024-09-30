@@ -26,4 +26,4 @@ jobs:
 
       - name: Run TruffleHog remote scan
         run: |
-          trufflehog git https://github.com/${{ github.repository }} --only-verified
+          trufflehog git https://github.com/${{ github.repository }} 

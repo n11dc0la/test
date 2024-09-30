@@ -1,6 +1,29 @@
----
-name: Security Scans
-on: [pull_request]
+name: TruffleHog Scan
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
 jobs:
-  security_credentials:
-    uses: n11dc0la/sec./.github/workflows/sec.yml@master
+  trufflehog-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install TruffleHog
+        run: |
+          pip install trufflehog
+
+      - name: Run TruffleHog scan
+        run: |
+          trufflehog filesystem --directory . --only-verified

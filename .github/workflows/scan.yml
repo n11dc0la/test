@@ -1,6 +1,7 @@
 name: Scan
 on: 
   workflow_call:
+  workflow_dispatch:
 jobs:
   TruffleHog:
     runs-on: ubuntu-latest

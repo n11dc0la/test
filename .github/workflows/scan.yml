@@ -3,4 +3,4 @@ name: Security Scans
 on: [pull_request]
 jobs:
   security_credentials:
-    uses: n11dc0la/sec./.github/workflows/sec.yml
+    uses: n11dc0la/sec./.github/workflows/sec.yml@master
